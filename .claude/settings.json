@@ -1,0 +1,14 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(wrangler*)",
+      "Bash(npm install)",
+      "Bash(npm run*)",
+      "Bash(node scripts/*)"
+    ],
+    "deny": [
+      "Bash(rm -rf*)",
+      "Bash(curl * | bash*)"
+    ]
+  }
+}
