@@ -10,5 +10,29 @@
       "Bash(rm -rf*)",
       "Bash(curl * | bash*)"
     ]
+  },
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "if echo \"$CLAUDE_TOOL_INPUT\" | grep -q 'wrangler deploy'; then echo '⚠️  After deploying the worker, update WORKER_URL in frontend/index.html if the worker URL changed.'; fi"
+          }
+        ]
+      }
+    ],
+    "PostToolUse": [
+      {
+        "matcher": "Write",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "if echo \"$CLAUDE_TOOL_INPUT\" | grep -q 'oauth'; then echo '✓ OAuth route changed. Reminder: LinkedIn has no refresh token — users re-auth every 60 days. KV state TTL is 5 min.'; fi"
+          }
+        ]
+      }
+    ]
   }
 }

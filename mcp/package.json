@@ -1,0 +1,17 @@
+{
+  "name": "outpace-social-scheduler-mcp",
+  "version": "1.0.0",
+  "description": "MCP server for Outpace Social Scheduler — scheduled posts, upload progress, and OAuth token checks",
+  "type": "module",
+  "main": "server.js",
+  "bin": {
+    "outpace-social-mcp": "server.js"
+  },
+  "scripts": {
+    "start": "node server.js",
+    "test": "node server.js --test"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.29.0"
+  }
+}
